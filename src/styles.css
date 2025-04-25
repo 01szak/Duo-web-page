@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+  background: linear-gradient(360deg, rgb(249, 251, 251) , rgba(198, 198, 241, 0.5), rgba(181, 181, 247, 0.5), rgba(169, 173, 251, 0.5))no-repeat;
+overscroll-behavior-x: none;
+  overflow-x: hidden;
+}
