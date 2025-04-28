@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'scp -r dist/duo-web-page/* user@your-vps:/var/www/duo-web-page/'
+                sh 'scp -r dist/duo-web-page/* kacper@57.128.227.137:/var/www/duo-web-page/'
             }
         }
     }
