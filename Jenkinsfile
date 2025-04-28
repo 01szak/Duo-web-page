@@ -16,10 +16,17 @@ pipeline {
                 sh 'ng build --configuration production'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'scp -r dist/duo-web-page/* kacper@57.128.227.137:/var/www/duo-web-page/'
-            }
-        }
+   stage('Deploy') {
+       steps {
+           script {
+               // Dodanie klucza SSH do zaufanych hostów
+               sh 'ssh-keyscan -H 57.128.227.137 >> ~/.ssh/known_hosts'
+
+               // Wykonanie SCP w celu przesłania plików na serwer
+               sh 'scp -r dist/duo-web-page/3rdpartylicenses.txt dist/duo-web-page/browser dist/duo-web-page/prerendered-routes.json kacper@57.128.227.137:/var/www/duo-web-page/'
+           }
+       }
+   }
+
     }
 }
